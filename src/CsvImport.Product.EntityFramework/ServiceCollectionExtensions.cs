@@ -22,6 +22,8 @@ namespace CsvImport.Product
             var connectionString = configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<ProductDbContext>(options =>
                 DbContextConfigurer.Configure(options, connectionString));
+
+            
         }
     }
 }

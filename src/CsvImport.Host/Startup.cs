@@ -32,6 +32,8 @@ namespace CsvImport.Host
             });
 
             services.AddProductEntityFramework(Configuration);
+            services.AddProduct();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
