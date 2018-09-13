@@ -10,6 +10,7 @@ namespace CsvImport.Product
     {
         public static Stream Get(string name)
         {
+            // TODO: add more test csv's
             var assembly = Assembly.GetExecutingAssembly();
             return assembly.GetManifestResourceStream("CsvImport.Product.TestCsvFiles." + name);
         }

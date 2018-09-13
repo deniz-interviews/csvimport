@@ -86,6 +86,7 @@ namespace CsvImport.Host.Controllers
             return View();
         }
 
+        // TODO make them API and add pagination to FE
         [HttpGet("product/import/{operationId}/valid-records")]
         public IActionResult GetValidRecords(string operationId, [FromQuery]int page = 0, [FromQuery]int batchSize = 50)
         {

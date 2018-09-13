@@ -8,6 +8,7 @@ namespace CsvImport.Product
 {
     public class ProductManager_CsvImport
     {
+        //TODO: Add more tests and check the results of imports
         [Fact]
         public async Task Should_Import()
         {
