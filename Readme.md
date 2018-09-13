@@ -2,18 +2,18 @@
 Csv Import project for IRECKONU
 
 ## Technologies
-Asp.Net Core
-Entity Framework Core
-Sql Express or InMemoryDb
-Memory cache storing intermediate CSV results
-Dependency Injection
+- Asp.Net Core
+- Entity Framework Core
+- Sql Express or InMemoryDb
+- Memory cache storing intermediate CSV results
+- Dependency Injection
 
 ## Data Structure
 `Product Family`-> `Product` -> `ProductDetails`
 
-ProductFamily: Nike Shirt
-Product: XL-Red Nike Shirt, L-Red Nike Shirt, M-Red Nike Shirt etc.
-ProductDetails: Details and Descriptions like XL, Red, Nike etc. 
+- ProductFamily: Nike Shirt
+- Product: XL-Red Nike Shirt, L-Red Nike Shirt, M-Red Nike Shirt etc.
+- ProductDetails: Details and Descriptions like XL, Red, Nike etc. 
 
 ## Assumptions
 - We are working with the customer first time. So he/she does not know the data structure.
