@@ -10,6 +10,8 @@ namespace CsvImport.Product
         public static void AddProduct(this IServiceCollection services)
         {
             services.AddScoped<IProductManager, ProductManager>();
+            services.AddScoped<ICsvCache, CsvCache>();
+            services.AddScoped<ICsvErrorCache, CsvErrorCache>();
         }
     }
 }

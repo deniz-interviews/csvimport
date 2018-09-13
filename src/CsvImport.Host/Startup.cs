@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CsvImport.Core;
 using CsvImport.Product;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -33,6 +34,12 @@ namespace CsvImport.Host
 
             services.AddProductEntityFramework(Configuration);
             services.AddProduct();
+            services.AddLogging();
+
+            services.AddMemoryCache();
+            services.AddScoped<ICacheProvider, MemoryCacheProvider>();
+
+            services.AddAntiforgery(options => options.HeaderName = "X-XSRF-TOKEN");
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

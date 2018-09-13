@@ -39,8 +39,8 @@ namespace CsvImport.EntityFramework
             try
             {
                 var result = await UnitOfWork.SaveAsync(cancellationToken);
-                if (result > 0) return Attempt<int>.Succeed(result);
-                return Attempt<int>.Fail(new DbErrorException("No changes saved."));
+                if (result > -1) return Attempt<int>.Succeed(result);
+                return Attempt<int>.Fail(new DbErrorException("Changes not saved"));
             }
             catch (Exception ex)
             {

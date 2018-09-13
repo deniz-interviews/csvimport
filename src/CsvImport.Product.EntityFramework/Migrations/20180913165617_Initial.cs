@@ -15,7 +15,7 @@ namespace CsvImport.Product.Migrations
                     CreatedDate = table.Column<DateTime>(nullable: false),
                     ModifiedDate = table.Column<DateTime>(nullable: false),
                     DeletedDate = table.Column<DateTime>(nullable: true),
-                    Key = table.Column<string>(nullable: true),
+                    Code = table.Column<string>(nullable: true),
                     Category = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -34,7 +34,7 @@ namespace CsvImport.Product.Migrations
                     ProductFamilyId = table.Column<Guid>(nullable: false),
                     Sku = table.Column<string>(nullable: true),
                     Price = table.Column<double>(nullable: false),
-                    DiscountPrice = table.Column<double>(nullable: false)
+                    DiscountPrice = table.Column<double>(nullable: true)
                 },
                 constraints: table =>
                 {

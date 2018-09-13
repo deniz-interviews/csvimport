@@ -3,6 +3,7 @@ using CsvImport.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -32,6 +33,8 @@ namespace CsvImport.Product.Repositories
         public async Task<Product> FindByIdAsync(Guid id, CancellationToken cancellationToken = default(CancellationToken))
         {
             var product = await UnitOfWork.Context.Products
+                .Include(p => p.ProductFamily)
+                .Include(p => p.ProductDetails)
                 .SingleOrDefaultAsync(x => x.Id == id, cancellationToken);
             return product;
         }
@@ -39,13 +42,38 @@ namespace CsvImport.Product.Repositories
         public async Task<Product> FindBySkuAsync(string sku, CancellationToken cancellationToken = default(CancellationToken))
         {
             var product = await UnitOfWork.Context.Products
+                .Include(p => p.ProductFamily)
+                .Include(p => p.ProductDetails)
                 .SingleOrDefaultAsync(x => x.Sku == sku, cancellationToken);
             return product;
         }
 
         public async Task<IEnumerable<Product>> GetAllAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
-            var products = await UnitOfWork.Context.Products.ToListAsync(cancellationToken);
+            var products = await UnitOfWork.Context.Products
+                .Include(p => p.ProductFamily)
+                .Include(p => p.ProductDetails)
+                .ToListAsync(cancellationToken);
+            return products;
+        }
+
+        public async Task<IEnumerable<Product>> GetAllBySkusAsync(IEnumerable<string> skus, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var products = await UnitOfWork.Context.Products
+                .Include(p => p.ProductFamily)
+                .Include(p => p.ProductDetails)
+                .Where(p => skus.Contains(p.Sku))
+                .ToListAsync(cancellationToken);
+            return products;
+        }
+
+        public async Task<IEnumerable<Product>> GetAllExceptSkusAsync(IEnumerable<string> skus, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var products = await UnitOfWork.Context.Products
+                .Include(p => p.ProductFamily)
+                .Include(p => p.ProductDetails)
+                .Where(p => !skus.Contains(p.Sku))
+                .ToListAsync(cancellationToken);
             return products;
         }
 

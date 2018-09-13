@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CsvImport.Product.Migrations
 {
     [DbContext(typeof(ProductDbContext))]
-    [Migration("20180911192232_Initial")]
+    [Migration("20180913165617_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -30,7 +30,7 @@ namespace CsvImport.Product.Migrations
 
                     b.Property<DateTime?>("DeletedDate");
 
-                    b.Property<double>("DiscountPrice");
+                    b.Property<double?>("DiscountPrice");
 
                     b.Property<DateTime>("ModifiedDate");
 
@@ -78,11 +78,11 @@ namespace CsvImport.Product.Migrations
 
                     b.Property<string>("Category");
 
+                    b.Property<string>("Code");
+
                     b.Property<DateTime>("CreatedDate");
 
                     b.Property<DateTime?>("DeletedDate");
-
-                    b.Property<string>("Key");
 
                     b.Property<DateTime>("ModifiedDate");
 

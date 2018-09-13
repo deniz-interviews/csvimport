@@ -28,7 +28,7 @@ namespace CsvImport.Product.Migrations
 
                     b.Property<DateTime?>("DeletedDate");
 
-                    b.Property<double>("DiscountPrice");
+                    b.Property<double?>("DiscountPrice");
 
                     b.Property<DateTime>("ModifiedDate");
 
@@ -76,11 +76,11 @@ namespace CsvImport.Product.Migrations
 
                     b.Property<string>("Category");
 
+                    b.Property<string>("Code");
+
                     b.Property<DateTime>("CreatedDate");
 
                     b.Property<DateTime?>("DeletedDate");
-
-                    b.Property<string>("Key");
 
                     b.Property<DateTime>("ModifiedDate");
 

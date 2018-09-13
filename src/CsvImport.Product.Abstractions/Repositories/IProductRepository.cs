@@ -11,6 +11,8 @@ namespace CsvImport.Product.Repositories
     {
         Task<Product> FindByIdAsync(Guid id, CancellationToken cancellationToken = default(CancellationToken));
         Task<Product> FindBySkuAsync(string sku, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IEnumerable<Product>> GetAllBySkusAsync(IEnumerable<string> skus, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IEnumerable<Product>> GetAllExceptSkusAsync(IEnumerable<string> skus, CancellationToken cancellationToken = default(CancellationToken));
         Task<IEnumerable<Product>> GetAllAsync(CancellationToken cancellationToken = default(CancellationToken));
         void Create(Product product);
         void Update(Product product);

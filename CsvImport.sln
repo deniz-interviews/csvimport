@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.28010.2019
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00 Root", "00 Root", "{23683074-2CC7-47D0-9443-EFBBA77875FF}"
+	ProjectSection(SolutionItems) = preProject
+		Readme.md = Readme.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "10 Host", "10 Host", "{96169431-41DC-4F6A-A0D3-B33776367965}"
 EndProject
@@ -26,6 +29,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CsvImport.Abstractions", "src\CsvImport.Abstractions\CsvImport.Abstractions.csproj", "{5B926A58-2B3B-4F81-9123-9E24DA9BF175}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CsvImport.EntityFramework", "src\CsvImport.EntityFramework\CsvImport.EntityFramework.csproj", "{5DAF8EC2-F68B-44C1-8480-FEFF3764D31B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CsvImport.Core", "src\CsvImport.Core\CsvImport.Core.csproj", "{50CDC712-3649-4B93-A4A3-FDF724AE79CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +70,10 @@ Global
 		{5DAF8EC2-F68B-44C1-8480-FEFF3764D31B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DAF8EC2-F68B-44C1-8480-FEFF3764D31B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5DAF8EC2-F68B-44C1-8480-FEFF3764D31B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50CDC712-3649-4B93-A4A3-FDF724AE79CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50CDC712-3649-4B93-A4A3-FDF724AE79CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50CDC712-3649-4B93-A4A3-FDF724AE79CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50CDC712-3649-4B93-A4A3-FDF724AE79CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,6 +87,7 @@ Global
 		{FD5BB77D-8F47-437A-BB64-BC43C69E7D6A} = {4D4D8C19-BE16-4A50-BAEC-0A59295FAAF2}
 		{5B926A58-2B3B-4F81-9123-9E24DA9BF175} = {B0CEEDAC-3724-4885-AD09-48C4D79C4DC3}
 		{5DAF8EC2-F68B-44C1-8480-FEFF3764D31B} = {B0CEEDAC-3724-4885-AD09-48C4D79C4DC3}
+		{50CDC712-3649-4B93-A4A3-FDF724AE79CF} = {B0CEEDAC-3724-4885-AD09-48C4D79C4DC3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5F8DE715-1BB7-41CB-8D0C-3E56BF1227E2}

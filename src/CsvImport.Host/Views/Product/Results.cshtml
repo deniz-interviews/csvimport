@@ -1,0 +1,108 @@
+﻿
+@{
+    ViewData["Title"] = "Results";
+    CsvImportSummaryModel csvImportSummaryModel = ViewBag.Summary;
+    IEnumerable<CsvOperationModel> validRecords = ViewBag.ValidRecords;
+    IEnumerable<CsvErrorModel> invalidRecords = ViewBag.InvalidRecords;
+}
+<script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
+<script>
+    $(document).ready(function () {
+        $("#validResults").dataTable();
+        $("#invalidResults").dataTable();
+    });
+
+</script>
+<h2>Summary</h2>
+<p>Records to be created: @csvImportSummaryModel.CreateRecordCount</p>
+<p style="color:darkslategrey">Records to be updated: @csvImportSummaryModel.UpdateRecordCount</p>
+<p style="color:red">Records to be deleted: @csvImportSummaryModel.DeleteRecordCount</p>
+<p style="color:darkred">Invalid records: @csvImportSummaryModel.InvalidRecordCount</p>
+
+<form method="post" enctype="multipart/form-data" action="/product/@csvImportSummaryModel.OperationId">
+    <button type="submit">Save</button>
+</form>
+
+<h2>Valid Results</h2>
+<table id="validResults" class="table table-striped table-bordered table-sm" cellspacing="0">
+    <thead>
+    <th class="th-sm">Operation</th>
+    <th class="th-sm">Sku</th>
+    <th class="th-sm">FamilyCode</th>
+    <th class="th-sm">Type</th>
+    <th class="th-sm">Brand</th>
+    <th class="th-sm">Price</th>
+    <th class="th-sm">DiscountPrice</th>
+    <th class="th-sm">Delivery</th>
+    <th class="th-sm">Category</th>
+    <th class="th-sm">Size</th>
+    <th class="th-sm">Color</th>
+    </thead>
+    <tbody>
+        @foreach (var record in validRecords)
+        {
+            <tr>
+                <td>
+                    @record.Operation
+                </td>
+                <td>
+                    @record.CsvItem.Sku
+                </td>
+                <td>
+                    @record.CsvItem.FamilyCode
+                </td>
+                <td>
+                    @record.CsvItem.Type
+                </td>
+                <td>
+                    @record.CsvItem.Brand
+                </td>
+                <td>
+                    @record.CsvItem.Price.ToString("F2")
+                </td>
+                <td>
+                    @record.CsvItem.DiscountPrice?.ToString("F2")
+                </td>
+                <td>
+                    @record.CsvItem.Delivery
+                </td>
+                <td>
+                    @record.CsvItem.Category
+                </td>
+                <td>
+                    @record.CsvItem.Size
+                </td>
+                <td>
+                    @record.CsvItem.Color
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<h2>Invalid Results</h2>
+<table id="invalidResults" class="table table-striped table-bordered table-sm" cellspacing="0">
+    <thead>
+    <th class="th-sm">Line Number</th>
+    <th class="th-sm">Message</th>
+    </thead>
+    <tbody>
+        @foreach (var record in invalidRecords)
+        {
+            <tr>
+                <td>
+                    @record.Line
+                </td>
+                <td>
+                    @foreach (var message in record.Messages)
+                    {
+                        @message <br />
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

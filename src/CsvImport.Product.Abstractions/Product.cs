@@ -10,7 +10,7 @@ namespace CsvImport.Product
         public virtual ProductFamily ProductFamily { get; set; }
         public string Sku { get; set; }
         public double Price { get; set; }
-        public double DiscountPrice { get; set; }
+        public double? DiscountPrice { get; set; }
         public virtual IList<ProductDetail> ProductDetails { get; set; }
     }
 }

@@ -30,12 +30,11 @@ namespace CsvImport.Host
                     logger.LogError(e, "An error occurred while migrating the database.");
                 }
             }
-
             host.Run();
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+            .UseStartup<Startup>();
     }
 }
